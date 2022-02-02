@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>The PIG game</title>
+</head>
+<body>
+<div class="centring_element">
+    <div class="turn_indicator"><h1>PLAYER 1 TURN</h1></div>
+    <div class="container">
+        
+        <div class="main_section ">
+            <h1>PLAYER 1</h1>
+            <div class="dice" id="dice1"><img style="position: relative;" src="images/Alea_1.png" alt="the_image"></div>
+            <div class="score_board">
+            <h2>Score : <section style="display: inline-block;" class="scores">0</section></h2></div>
+        </div>
+        <div class="main_section ">
+            <h1>PLAYER 2</h1>
+            <div class="dice" id="dice2"><img style="position: relative;" src="images/Alea_2.png" alt="the_image"></div>
+            
+            <div class="score_board">
+                
+            <h2>Score : <section style="display: inline-block;">0</section></h2></div>
+        </div>
+        
+    </div>
+    <div class="buttons">
+        <a href="#" class="myButton" id="roll_dice">Roll dice</a>
+        <a href="#" class="myButton" id="add_score">Hold</a>
+    </div>
+    <div class="rough_score">0</div>
+    
+</div>
+
+    <script>
+        var total = 0;
+        var player_1 = 0;
+        var player_2 = 0;
+        var turn = 1;
+
+
+
+        document.querySelector('#roll_dice').addEventListener('click',function(){
+            var num = Math.floor((Math.random() * 6))  + 1;
+            
+            document.querySelector('#dice' + turn).innerHTML = "<img style='position: relative;' src='images/Alea_" + num + ".png' alt='the_image'></div>";
+            
+            
+            
+            
+            if (num === 1){
+                
+                if(turn === 1){
+                    turn = 2;
+                    document.querySelector('.turn_indicator').innerHTML = "<h1>PLAYER 2 TURN</h1>";
+                }
+                else{
+                    turn = 1;
+                    document.querySelector('.turn_indicator').innerHTML = "<h1>PLAYER 1 TURN</h1>";
+                }
+            }
+        });
+        
+        
+
+
+
+
+
+    </script>
+</body>
+</html>
